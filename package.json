@@ -1,0 +1,26 @@
+{
+  "name": "crackedlogin-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krconv/CrackedLoginWebsite.git"
+  },
+  "author": "Kodey Converse",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krconv/CrackedLoginWebsite/issues"
+  },
+  "homepage": "https://github.com/krconv/CrackedLoginWebsite#readme",
+  "dependencies": {
+    "jsrender": "^0.9.88",
+    "mime": "^2.0.3",
+    "mysql": "^2.15.0",
+    "querystring": "^0.2.0"
+  }
+}
