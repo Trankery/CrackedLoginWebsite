@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Stodd C Minecraft</title>
+</head>
+
+<body>
+    <header>
+        <h1 id="title"><a href="/">Stodd C Minecraft</a></h1>
+    </header>
+    <div>
+        <main>
+            <p class="announcement">
+                Welcome to the Stodd C Minecraft Website!
+            </p>
+            <article>
+                <header>
+                    <h2>What is this?</h2>
+                </header>
+                <main>
+                    <p>
+                        This is the information page for the Stodd C Minecraft server, which is a Minecraft server available to all Stodd C residents
+                        at WPI.
+                    </p>
+                </main>
+            </article>
+            <article>
+                <header>
+                    <h2>How can I play?</h2>
+                </header>
+                <main>
+                    <p>
+                        First, you need to know how to play Minecraft. If you don't know how to play, get a friend to help you.
+                    </p>
+                    <p>
+                        This server has been set up to allow you to play without buying the game of Minecraft. Instead, you will use your WPI account
+                        to register a seperate Minecraft username and password. You will need to follow these steps even
+                        if you've bought the game.
+                    </p>
+                    <ol>
+                        <li>Login to your WPI account using the <span class="data">Login</span> button on the right side.</li>
+                        <li>Register the username and password that you would like to use in-game.</li>
+                        <li>Download Minecraft from <a herf="https://tlauncher.org/en/" target="_blank">here</a> (if you haven't
+                            purchased the game).</li>
+                        <li>Launch the game on your computer.</li>
+                        <li>Enter the username that you registered {{if status.version}}, select version <span class="data">{{:status.version}}</span>,{{/if}} and <span class="data">Install</span> the game.</li>
+                        <li>Open the <span class="data">Multiplayer</span> menu and connect to {{if status.host}}<span class="data">{{:status.host}}</span>{{else}}the
+                            server{{/if}}.
+                        </li>
+                        <li>Enter the password that you registered when prompted.</li>
+                        <li>Start destroying some creepers.</li>
+                    </ol>
+                </main>
+            </article>
+            <article>
+                <header>
+                    <h2>Who can play?</h2>
+                </header>
+                <main>
+                    <p>
+                        Anyone in Stoddard C can play. If you aren't located in the awesome Stodd C and want to play, let an administrator know.
+                    </p>
+                </main>
+            </article>
+            <article>
+                <header>
+                    <h2>What are the rules?</h2>
+                </header>
+                <main>
+                    <p>
+                        The rules are simple. If you break any, your account will be banned.
+                    </p>
+                    <ol>
+                        <li><em>Don't grief.</em> Don't steal or destroy something that isn't yours.</li>
+                        <li><em>Don't cheat.</em> Don't use mods that affect gameplay.</li>
+                    </ol>
+                </main>
+            </article>
+            <article>
+                <header>
+                    <h2>Who's in charge?</h2>
+                </header>
+                <main>
+                    <p>
+                        Who knows. If you need to contact an administrator for any reason (something broke or the server is on fire), send an email
+                        to <span class="data">scmc@wpi.edu</span>.
+                    </p>
+                </main>
+            </article>
+        </main>
+        <aside>
+            {{if status}}
+            <article>
+                <header>
+                    <h2>Who's online?</h2>
+                    {{if status.online}}
+                    <div class="data">{{:status.playerCount}}/{{:status.playerMax}}</div>
+                    {{else}}
+                    <div class="data error">Offline</div>
+                    {{/if}}
+                </header>
+                <main>
+                    {{if status.online}} {{if status.players.length gt 0}}
+                    <ul>
+                        {{for status.players}}
+                        <li class="data">{{:#data}}</li>
+                        {{/for}}
+                    </ul>
+                    {{else}} <span>It's quiet here.</span> {{/if}} {{else}}
+                    <p class="error">
+                        The server is currently unreachable.
+                    </p>
+                    <p>
+                        Please let an administrator know that you are seeing this message.
+                    </p>
+                    {{/if}}
+                </main>
+            </article>
+            {{/if}} {{if user.error}}
+            <article>
+                <header>
+                    <h2>Register to play</h2>
+                </header>
+                <main>
+                    <p class="error">
+                        The database might be on fire. At least, we can't connect to it to update your registration.
+                    </p>
+                    <p>
+                        Please let an administrator know that you are seeing this message.
+                    </p>
+                </main>
+            </article>
+            {{else user.isAuthenticated == false}}
+            <article>
+                <header>
+                    <h2>Register to play</h2>
+                </header>
+                <main>
+                    <form action="https://login.microsoftonline.com/wpi.edu/oauth2/authorize" method="GET">
+                        <input type="hidden" name="client_id" value="298a9688-c92e-4f8f-bc8c-baddcc5d1970">
+                        <input type="hidden" name="response_type" value="code">
+                        <input type="hidden" name="redirect_url" value="http%3A%2F%2Flocalhost%3A8080%2Flogin">
+                        <input type="hidden" name="response_mode" value="form_post">
+                        <input type="hidden" name="domain_hint" value="wpi.edu">
+                        <input type="hidden" name="scope" value="User.Read">
+                        <p>
+                            Log in with your WPI account to register or change your password.
+                        </p>
+                        <div class="buttons">
+                            <input type="submit" value="Login">
+                        </div>
+                    </form>
+                </main>
+            </article>
+            {{else user.canJoin == false}}
+            <article>
+                <header>
+                    <h2>Register to play</h2>
+                </header>
+                <main>
+                    <p>
+                        You are not allowed to play. Please contact an administrator if you'd like to.
+                    </p>
+                </main>
+            </article>
+            {{else user.isRegistered == false}}
+            <article>
+                <header>
+                    <h2>Register to play</h2>
+                </header>
+                <main>
+                    <form action="/register" method="POST">
+                        <p>
+                            Select a username and password to play with. You can choose any username that you want, and shouldn't use your WPI password.
+                        </p>
+                        <div class="field">
+                            <span class="label">Username</span>
+                            <input name="username" type="text" placeholder="e.g. Gompei" autocomplete="false">
+                        </div>
+                        <div class="field">
+                            <span class="label">Password</span>
+                            <input name="password" type="password" placeholder="password" autocomplete="false">
+                        </div>
+                        <div class="buttons">
+                            <input type="submit" value="Register">
+                        </div>
+                    </form>
+                </main>
+            </article>
+            {{else user.isRegistered == true}}
+            <article>
+                <header>
+                    <h2>Change your password</h2>
+                </header>
+                <main>
+                    <form action="/register" method="POST">
+                        {{if user.message}}
+                        <p class="data">{{:user.message}}</p>
+                        {{/if}}
+                        <p>
+                            You can change your password if you'd like. If you'd like to change your username, please contact an administrator.
+                        </p>
+                        <div class="field">
+                            <span class="label">Username</span>
+                            <input name="username" type="text" placeholder="username" value="{{:user.username}}" autocomplete="false" disabled>
+                        </div>
+                        <div class="field">
+                            <span class="label">Password</span>
+                            <input name="password" type="password" placeholder="password" autocomplete="false">
+                        </div>
+                        <div class="buttons">
+                            <input type="submit" value="Update">
+                        </div>
+                    </form>
+                </main>
+            </article>
+            {{/if}}
+        </aside>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,234 @@
+@import url('/static/font/fonts.css');
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 900px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+* {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h2 {
+    font-family: 'Minecraft', Courier New, Courier, monospace;
+    font-size: 1.1rem;
+    margin: auto;
+}
+
+p {
+    margin: auto;
+}
+
+p+p {
+    margin-top: 0.5rem;
+}
+
+input[type=text],
+input[type=password] {
+    padding: 3px;
+    border: 2px solid #555555;
+    font-family: 'Minecraft', Courier New, Courier, monospace;
+}
+
+input[type=submit] {
+    font-family: 'Minecraft', Courier New, Courier, monospace;
+    border: none;
+    background-color: #663300;
+    padding: 0.3rem;
+    margin-top: 5px;
+    color: white;
+    box-shadow: 2px 2px 3px black;
+}
+
+input[type=submit]:hover {
+    background-color: #985d2c;
+}
+
+input[type=submit]:active {
+    background-color: #3b0a00;
+    box-shadow: 1px 1px 0px black;
+}
+
+input:focus {
+    outline: none;
+}
+
+em {
+    font-style: normal;
+    font-weight: 600;
+}
+
+.error {
+    color: darkred;
+    font-size: larger;
+}
+
+.data {
+    font-family: 'Minecraft', Courier New, Courier, monospace;
+    font-size: smaller;
+    background-color: #dddddd;
+    border: 1px solid #aaaaaa;
+    padding: 0.2rem;
+}
+
+body {
+    background-color: black;
+    background-image: url(/static/img/bg.png)
+}
+
+body>header {
+    background-color: #00aa00;
+    border-bottom: 25px solid #007900;
+    padding: 50px 20px 20px;
+    box-shadow: 0 0 7px black;
+}
+
+@media screen and (max-width: 900px) {
+    body>header {
+        padding: 20px;
+    }
+}
+
+body>header>#title {
+    font-size: 5rem;
+    letter-spacing: 0.35rem;
+    text-align: center;
+    margin: auto;
+    color: white;
+    text-shadow: -5px -5px black, 5px 5px black, 5px -5px black, -5px 5px black;
+}
+
+@media screen and (max-width: 900px) {
+    body>header>#title {
+        font-size: 3.5rem;
+    }
+}
+
+body>header>#title>a {
+    font-family: 'Minecraft-Title', sans-serif;
+    text-decoration: none;
+}
+
+body>header>#title>a:hover {
+    color: inherit;
+}
+
+body>header>#title>a:visited {
+    color: inherit;
+}
+
+body>div {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+@media screen and (max-width: 900px) {
+    body>div {
+        flex-direction: column;
+    }
+}
+
+body>div>main {
+    background: white;
+    width: 900px;
+    box-shadow: 0 0 7px black;
+}
+
+@media screen and (max-width: 900px) {
+    body>div>main {
+        width: auto;
+        order: 1;
+    }
+}
+
+body>div>main>.announcement {
+    padding: 20px;
+    font-size: 2rem;
+}
+
+body>div>main>p {
+    padding: 0 30px 20px;
+    font-size: 1.3rem;
+}
+
+body>div>main>article>header {
+    background-color: #aaaaaa;
+    border-bottom: 3px solid #555555;
+    padding: 4px 7px;
+    margin: 5px 0;
+}
+
+body>div>main>article>main {
+    padding: 10px;
+}
+
+body>div>main>article>main p {
+    margin: auto 10px;
+    line-height: 1.4;
+}
+
+body>div>main>article>main li {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+body>div>aside>article {
+    background: white;
+    margin: auto 10px 10px;
+    width: 300px;
+    box-shadow: 0 0 7px black;
+}
+
+@media screen and (max-width: 900px) {
+    body>div>aside>article {
+        width: auto;
+        margin: auto auto 10px;
+    }
+}
+
+body>div>aside>article>header {
+    background-color: #aaaaaa;
+    border-bottom: 3px solid #555555;
+    padding: 4px 5px;
+    margin-bottom: 5px;
+}
+
+body>div>aside>article>header>* {
+    display: inline;
+}
+
+body>div>aside>article>main {
+    padding: 7px;
+}
+
+body>div>aside>article>main .field {
+    display: flex;
+    justify-content: center;
+    margin: 10px 20px;
+}
+
+body>div>aside>article>main .label {
+    width: 70px;
+    margin-right: 7px;
+    display: flex;
+    align-items: center;
+}
+
+body>div>aside>article>main input[type=text],
+input[type=password] {
+    width: 150px;
+}
+
+body>div>aside>article>main .buttons {
+    display: flex;
+    justify-content: flex-end;
+}

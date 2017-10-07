@@ -1,0 +1,19 @@
+@font-face {
+	font-family: 'Minecraft-Title';
+	src: url('Minecrafter.eot');
+	src: url('Minecrafter.eot?#iefix') format('embedded-opentype'),
+		url('Minecrafter.woff') format('woff'),
+		url('Minecrafter.ttf') format('truetype');
+	font-weight: 900;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Minecraft';
+	src: url('Minecraft.eot');
+	src: url('Minecraft.eot?#iefix') format('embedded-opentype'),
+		url('Minecraft.woff') format('woff'),
+		url('Minecraft.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}

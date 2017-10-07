@@ -18,9 +18,14 @@
   },
   "homepage": "https://github.com/krconv/CrackedLoginWebsite#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.1",
     "jsrender": "^0.9.88",
-    "mime": "^2.0.3",
+    "mcquery": "^0.2.6",
     "mysql": "^2.15.0",
-    "querystring": "^0.2.0"
+    "password-hash": "^1.2.2",
+    "querystring": "^0.2.0",
+    "request": "^2.83.0"
   }
 }
